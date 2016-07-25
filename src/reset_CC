@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#(SP)  <lid|guid> <portnum> <valid> <control_type> <threshold> <packet_size> <cong_parm_marking_rate>
+#(SP)  <lid|guid> <portnum> <valid> <control_type> <threshold> <packet_size> <cong_parm_marking_rate>
+
+lid=$1
+port=$2
+marking_rate=$3
+
+#sudo ibccconfig SP $lid $port 1 0x0001 0xF 8 $marking_rate 
+sudo ibccconfig SS $lid 0x14 0x0 0x0000000000000000000000000000000000000000000000000000000000000000 0xF 8 0x0 0:0 $marking_rate
